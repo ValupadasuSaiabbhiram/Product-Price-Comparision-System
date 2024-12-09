@@ -1,26 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Search Results</h1>
-    <h2>Price Trends (Next 7 Days):</h2>
-    <ul>
-        {% for trend in trends %}
-        <li>Day {{ loop.index }}: ₹{{ trend|round(2) }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1 class="page-title">Search Results</h1>
 
-    <h2>Products:</h2>
-    <ul>
-        {% for product in products %}
-        <li>
-            <strong>{{ product.name }}</strong> - ₹{{ product.price }}
-            <a href="{{ product.link }}" target="_blank">View</a>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="/">Search Again</a>
+        <div class="price-trends">
+            <h2 class="section-title">Price Trends (Next 7 Days):</h2>
+            <ul>
+                {% for trend in trends %}
+                <li class="trend-item">
+                    <span class="day">Day {{ loop.index }}:</span>
+                    <span class="price">₹{{ trend|round(2) }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="product-list">
+            <h2 class="section-title">Products:</h2>
+            <ul>
+                {% for product in products %}
+                <li class="product-item">
+                    <div class="product-info">
+                        <strong class="product-name">{{ product.name }}</strong>
+                        <span class="product-price">₹{{ product.price }}</span>
+                    </div>
+                    <a class="view-link" href="{{ product.link }}" target="_blank">View</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a class="back-link" href="/">Search Again</a>
+    </div>
 </body>
 </html>
