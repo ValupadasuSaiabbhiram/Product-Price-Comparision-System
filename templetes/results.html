@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <h2>Price Trends (Next 7 Days):</h2>
+    <ul>
+        {% for trend in trends %}
+        <li>Day {{ loop.index }}: ₹{{ trend|round(2) }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Products:</h2>
+    <ul>
+        {% for product in products %}
+        <li>
+            <strong>{{ product.name }}</strong> - ₹{{ product.price }}
+            <a href="{{ product.link }}" target="_blank">View</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Search Again</a>
+</body>
+</html>
