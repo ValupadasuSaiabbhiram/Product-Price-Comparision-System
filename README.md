@@ -27,8 +27,8 @@ This project is a web-based application that allows users to search for products
 
 2. Create and activate a virtual environment:
     ```python
-    python3 -m venv venv
-    source venv/bin/activate  # For Windows: venv\Scripts\activate
+    python3 -m venv .env
+    source .env/bin/activate  # For Windows: .env\Scripts\activate
 
 3. Install the required dependencies:
     ```python
